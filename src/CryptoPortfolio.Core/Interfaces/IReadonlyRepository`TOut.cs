@@ -7,7 +7,7 @@ namespace CryptoPortfolio.Core.Interfaces
 {
     public interface IReadonlyRepository<TOut>
     {
-        TOut Find(Guid Id);
+        TOut Find(Guid id);
         IEnumerable<TOut> FindAll();
     }
 }
