@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F3E5FD2-CDCE-4FC9-894A-C54219A727F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A59A0ECE-4C7B-4CCB-AC2E-61B8D0510C16}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CryptoPortfolio", "src\CryptoPortfolio\CryptoPortfolio.xproj", "{36172FDE-B1FC-4CB8-B9A5-454D18377FF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36172FDE-B1FC-4CB8-B9A5-454D18377FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36172FDE-B1FC-4CB8-B9A5-454D18377FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36172FDE-B1FC-4CB8-B9A5-454D18377FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36172FDE-B1FC-4CB8-B9A5-454D18377FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36172FDE-B1FC-4CB8-B9A5-454D18377FF9} = {1F3E5FD2-CDCE-4FC9-894A-C54219A727F6}
+	EndGlobalSection
+EndGlobal
