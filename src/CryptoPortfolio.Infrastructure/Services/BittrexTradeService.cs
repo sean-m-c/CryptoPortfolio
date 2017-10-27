@@ -17,11 +17,9 @@ namespace CryptoPortfolio.Infrastructure
     {
         const string _cultureCode = "en-us";
         const string _delimiter = "-";
-        const string _fileName = @"C:\Users\seac\Desktop\fullOrders.xlsx";
+        const string _fileName = "fullOrders";
         const string _strBuyIndicator = "LIMIT_BUY";
         const string _strLimitIndicator = "LIMIT_SELL";
-
-        private readonly IExchange _exchange;
 
         public BittrexTradeService(IExchangeRepository exchangeRepository, ILoggerFactory loggerFactory) : 
             base(_fileName, exchangeRepository, loggerFactory, new CultureInfo(_cultureCode).DateTimeFormat, _delimiter, _strBuyIndicator, _strLimitIndicator)
@@ -35,7 +33,6 @@ namespace CryptoPortfolio.Infrastructure
                 Amount = trade.Quantity,
                 BaseCurrency = ParseBaseCurrency(trade.Exchange),
                 CounterCurrency = ParseCounterCurrency(trade.Exchange),
-                Exchange = _exchange,
                 ExchangeTransactionId = trade.OrderUuid,
                 Fee = trade.Commission,
                 NetTotal = trade.Limit + trade.Commission,
@@ -52,7 +49,6 @@ namespace CryptoPortfolio.Infrastructure
                 Amount = trade.Quantity,
                 BaseCurrency = ParseBaseCurrency(trade.Exchange),
                 CounterCurrency = ParseCounterCurrency(trade.Exchange),
-                Exchange = _exchange,
                 ExchangeTransactionId = trade.OrderUuid,
                 Fee = trade.Commission,
                 NetTotal = trade.Limit + trade.Commission,

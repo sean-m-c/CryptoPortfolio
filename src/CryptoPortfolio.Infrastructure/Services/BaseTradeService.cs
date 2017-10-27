@@ -25,7 +25,7 @@ namespace CryptoPortfolio.Infrastructure
         readonly string _sellTradeIndicator;
 
         public BaseTradeService(
-            string filePath, 
+            string fileName, 
             IExchangeRepository exchangeRepository, 
             ILoggerFactory loggerFactory, 
             DateTimeFormatInfo dateTimeFormatInfo,
@@ -43,9 +43,9 @@ namespace CryptoPortfolio.Infrastructure
             _exchange = exchangeRepository.Find(exchangeType);
             if (_exchange == null) throw new InvalidOperationException(string.Format("Could not find exchange for the given exchange type: {0}", exchangeType.ToString()));
 
-            _filePath = filePath;
-            if (string.IsNullOrWhiteSpace(filePath)) throw new ArgumentNullException(nameof(filePath));
-            if (!File.Exists(filePath)) throw new FileNotFoundException("Could not locate the excel file with the trade information.", filePath);
+            if (string.IsNullOrWhiteSpace(fileName)) throw new ArgumentNullException(nameof(fileName));
+            _filePath =  Path.Combine(Directory.GetCurrentDirectory(), "..\\", "..\\", "Assets", "TradeHistory", string.Concat(fileName, ".xlsx")); ;
+            if (!File.Exists(_filePath)) throw new FileNotFoundException("Could not locate the excel file with the trade information.", _filePath);
 
             _dateTimeFormatInfo = dateTimeFormatInfo;
             if (_dateTimeFormatInfo == null) throw new ArgumentNullException(nameof(dateTimeFormatInfo));

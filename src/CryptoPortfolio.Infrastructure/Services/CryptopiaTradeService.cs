@@ -10,12 +10,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace CryptoPortfolio.Infrastructure
 {
     public class CryptopiaTradeService : BaseTradeService<CryptopiaExchange, CryptopiaTradeDto>
     {
-        const string _fileName = @"C:\Users\seac\Desktop\Trade_History.xlsx";
+        const string _fileName = "Trade_History";
         const string _cultureCode = "en-gb";
         const string _delimiter = "/";
         const string _strBuyIndicator = "Buy";
