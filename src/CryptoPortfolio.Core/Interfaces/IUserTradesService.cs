@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Interfaces
 {
-     public interface IReadonlyRepository<TOut>
+    public interface IUserTradesService
     {
-        TOut Find(Guid id);
-        IEnumerable<TOut> FindAll();
+        IEnumerable<ITrade> FindAll();
     }
 }

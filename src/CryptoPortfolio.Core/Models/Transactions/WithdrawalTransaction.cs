@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Models
 {
-    public class WithdrawalTransaction : BaseTransaction
+     class WithdrawalTransaction : BaseTransaction
     {
     }
 }

@@ -4,6 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using CryptoPortfolio.Infrastructure;
+using CryptoPortfolio.Core.Models.Exchanges;
+using CryptoPortfolio.Core.Interfaces;
 
 namespace CryptoPortfolio
 {

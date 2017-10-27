@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CryptoPortfolio.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CryptoPortfolio.Core.Models
+namespace CryptoPortfolio.Core.Models.Exchanges
 {
-    public class Exchange
+    public abstract class BaseExchange : IExchange
     {
         public Guid Id { get; set; }
 

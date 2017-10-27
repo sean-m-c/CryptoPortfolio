@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-CryptoPortfolio-9b591ecb-7657-4b68-9403-4d3770f57f89",
 
   "dependencies": {
@@ -43,7 +43,9 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "CryptoPortfolio.Core": "1.0.0-*",
+    "CryptoPortfolio.Infrastructure": "1.0.0-*"
   },
 
   "tools": {

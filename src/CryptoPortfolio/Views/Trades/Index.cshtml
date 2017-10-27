@@ -1,0 +1,49 @@
+﻿@model IndexVM
+
+@{
+    ViewData["Title"] = "Trades - Index";
+}
+
+@section scripts {
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/fh-3.1.3/kt-2.3.2/r-2.2.0/rg-1.0.2/rr-1.2.3/sl-1.2.3/datatables.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/fh-3.1.3/kt-2.3.2/r-2.2.0/rg-1.0.2/rr-1.2.3/sl-1.2.3/datatables.min.js"></script>
+<script>
+    $('.datatables').DataTable({
+    iDisplayLength: 100,
+    dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    });
+</script>
+
+}
+
+<div style="padding-top:20px;">
+    <table class="table table-striped datatables">
+        <thead>
+        <th>Currency</th>
+        <th>Purchased with</th>
+        <th>Trade count</th>
+        <th>Weighted Average</th>
+        <th>Value</th>
+        <th>Held</th>
+        </thead>
+        <tbody>
+            @foreach (var group in Model.Trades.OrderBy(t => t.BaseCurrency.Code.ToString()).ThenBy(t => t.CounterCurrency.Code.ToString()).GroupBy(t => t.CounterCurrency)) {
+            <tr>
+                <td><a target="_blank" href="@string.Concat("https://twitter.com/search?f=tweets&q=%24", group.Key.Code)">@group.Key.Code</a></td>
+                <td>@String.Concat(group.First().BaseCurrency.Code)</td>
+                <td>@group.Count()</td>
+                <td>@group.WeightedAverage(t => t.Price, t => t.Amount)</td>
+                <td>@group.Sum(t => (t is CryptoPortfolio.Core.Models.BuyTrade ? t.NetTotal : -t.NetTotal) * (t is CryptoPortfolio.Core.Models.BuyTrade ? t.Amount : -t.Amount))</td>
+                <td>@group.Sum(t => (t is CryptoPortfolio.Core.Models.BuyTrade ? t.Amount : -t.Amount))</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>

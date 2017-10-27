@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CryptoPortfolio.Core.Models
+namespace CryptoPortfolio.Core.Models.Exchanges
 {
-    public class SellTradeTransaction : BaseTradeTransaction
+    public class CryptopiaExchange : BaseExchange
     {
     }
 }

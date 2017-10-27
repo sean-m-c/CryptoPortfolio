@@ -12,6 +12,10 @@ using Microsoft.Extensions.Logging;
 using CryptoPortfolio.Data;
 using CryptoPortfolio.Models;
 using CryptoPortfolio.Services;
+using CryptoPortfolio.Core.Interfaces;
+using CryptoPortfolio.Infrastructure;
+using CryptoPortfolio.Core.Models.Exchanges;
+using CryptoPortfolio.Infrastructure.Services;
 
 namespace CryptoPortfolio
 {
@@ -52,6 +56,11 @@ namespace CryptoPortfolio
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.AddTransient<IExchangeRepository, MockExchangeRepository>();
+            services.AddTransient<ITradeService<CryptopiaExchange>, CryptopiaTradeService>();
+            services.AddTransient<ITradeService<BittrexExchange>, BittrexTradeService>();
+            services.AddTransient<IUserTradesService, DefaultUserTradesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,7 +90,7 @@ namespace CryptoPortfolio
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Trades}/{action=Index}/{id?}");
             });
         }
     }

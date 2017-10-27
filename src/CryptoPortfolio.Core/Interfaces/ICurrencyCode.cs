@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CryptoPortfolio.Core.Models
+namespace CryptoPortfolio.Core.Interfaces
 {
-    public class BuyTradeTransaction : BaseTradeTransaction
+    public interface ICurrencyCode
     {
+        string Value { get; }
     }
 }

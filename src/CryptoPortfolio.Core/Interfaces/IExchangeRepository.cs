@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Interfaces
 {
-    public interface IExchangeRepository : IReadonlyRepository<Exchange>
+     public interface IExchangeRepository : IReadonlyRepository<IExchange>
     {
-        Exchange Find(string exchangeName);
+        IExchange Find(string exchangeName);
+        IExchange Find<TExchangeType>(TExchangeType exchangeType);
     }
 }

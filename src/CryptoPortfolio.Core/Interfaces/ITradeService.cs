@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Interfaces
 {
-    public interface ITradeTransactionRepository: IReadonlyRepository<BaseTradeTransaction>
+    public interface ITradeService<TExchange>: IReadonlyRepository<ITrade> 
+        where TExchange: IExchange
     {
     }
 }

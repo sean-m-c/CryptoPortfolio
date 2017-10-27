@@ -3,7 +3,11 @@
 
   "dependencies": {
     "CryptoPortfolio.Core": "1.0.0-*",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.1",
+    "System.ComponentModel.Annotations": "4.1.0",
+    "System.IO.FileSystem": "4.3.0",
+    "EPPlus.Core": "1.5.2",
+    "Microsoft.Extensions.Logging.Abstractions": "1.1.0"
   },
 
   "frameworks": {

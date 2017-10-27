@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Interfaces
 {
-     public interface IReadonlyRepository<TOut>
+    public interface IExchange
     {
-        TOut Find(Guid id);
-        IEnumerable<TOut> FindAll();
+         Guid Id { get; set; }
+         string Name { get; set; }
+         Uri Uri { get; set; }
     }
 }

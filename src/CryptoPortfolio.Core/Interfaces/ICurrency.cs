@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace CryptoPortfolio.Core.Interfaces
 {
-     public interface IReadonlyRepository<TOut>
+    public interface ICurrency
     {
-        TOut Find(Guid id);
-        IEnumerable<TOut> FindAll();
+        ICurrencyCode Code { get; }
+        string Name { get; }
     }
 }
