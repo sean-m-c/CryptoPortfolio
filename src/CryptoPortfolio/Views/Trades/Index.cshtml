@@ -26,6 +26,7 @@
         <thead>
         <th>Currency</th>
         <th>Purchased with</th>
+        <th>Exchange</th>
         <th>Trade count</th>
         <th>Weighted Average</th>
         <th>Value</th>
@@ -36,6 +37,7 @@
             <tr>
                 <td><a target="_blank" href="@string.Concat("https://twitter.com/search?f=tweets&q=%24", group.Key.Code)">@group.Key.Code</a></td>
                 <td>@String.Concat(group.First().BaseCurrency.Code)</td>
+                <td>@group.First().Exchange.Name</td>
                 <td>@group.Count()</td>
                 <td>@group.WeightedAverage(t => t.Price, t => t.Amount)</td>
                 <td>@group.Sum(t => (t is CryptoPortfolio.Core.Models.BuyTrade ? t.NetTotal : -t.NetTotal) * (t is CryptoPortfolio.Core.Models.BuyTrade ? t.Amount : -t.Amount))</td>
